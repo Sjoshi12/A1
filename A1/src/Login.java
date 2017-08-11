@@ -5,10 +5,14 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import java.awt.Color;
 
 public class Login {
 
-	private JFrame frame;
+	private JFrame frmLogin;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -18,7 +22,7 @@ public class Login {
 			public void run() {
 				try {
 					Login window = new Login();
-					window.frame.setVisible(true);
+					window.frmLogin.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -37,29 +41,44 @@ public class Login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmLogin = new JFrame();
+		frmLogin.setTitle("Login");
+		frmLogin.getContentPane().setBackground(Color.GRAY);
+		frmLogin.setBounds(100, 100, 318, 232);
+		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLogin.getContentPane().setLayout(null);
 		
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setBounds(29, 47, 88, 26);
-		frame.getContentPane().add(lblUsername);
+		frmLogin.getContentPane().add(lblUsername);
 		
 		JLabel lblNewLabel = new JLabel("Password");
 		lblNewLabel.setBounds(29, 87, 88, 26);
-		frame.getContentPane().add(lblNewLabel);
+		frmLogin.getContentPane().add(lblNewLabel);
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
+				//add the code to access the db
+				
+				
+				frmLogin.dispose();
 				HomePage obj = new HomePage();
 				obj.setVisible(true);
 				
 			}
 		});
-		btnLogin.setBounds(172, 169, 89, 23);
-		frame.getContentPane().add(btnLogin);
+		btnLogin.setBounds(111, 124, 89, 23);
+		frmLogin.getContentPane().add(btnLogin);
+		
+		textField = new JTextField();
+		textField.setBounds(111, 50, 86, 20);
+		frmLogin.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(111, 84, 86, 20);
+		frmLogin.getContentPane().add(textField_1);
+		textField_1.setColumns(10);
 	}
 }
